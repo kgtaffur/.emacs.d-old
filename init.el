@@ -33,9 +33,10 @@
   (global-hl-line-mode 1)
   (set-face-background 'default "undefined"))
 
-;(use-package clipetty
-;  :ensure t
-;  :hook (after-init . global-clipetty-mode))
+; To send text (copy) from emacs to OS.
+(use-package clipetty
+  :ensure t
+  :hook (after-init . global-clipetty-mode))
 
 ;(use-package evil
 ;  :ensure t
