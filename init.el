@@ -69,6 +69,23 @@
   (add-to-list 'apheleia-mode-alist '(web-mode . prettier))
   (apheleia-global-mode t))
 
+;; Completion framework
+(use-package company
+  :ensure t
+  :after lsp-mode
+  :hook (prog-mode . company-mode)
+  :bind
+  (:map company-active-map ("<tab>" . company-complete-selection))
+  (:map lsp-mode-map ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+;; Company icons
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
