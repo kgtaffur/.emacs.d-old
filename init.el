@@ -110,6 +110,10 @@
   :config
   (global-flycheck-mode t))
 
+;; Tailwind LSP
+(use-package lsp-tailwindcss
+  :quelpa (lsp-tailwindcss :fetcher github :repo "merrickluo/lsp-tailwindcss"))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
