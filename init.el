@@ -27,7 +27,10 @@
 	tab-width 2
 	color-number-mode t)
    (setq create-lockfiles nil
-	 make-backup-files nil)
+	 make-backup-files nil
+	 auto-save-default nil)
+   (setq gc-cons-threshold 100000000
+	 read-process-output-max (* 1024 1024))
   (menu-bar-mode -1)
   (global-display-line-numbers-mode 1)
   (global-hl-line-mode 1)
