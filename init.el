@@ -93,6 +93,11 @@
   :ensure t
   :hook (prog-mode . electric-pair-mode))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode t))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
