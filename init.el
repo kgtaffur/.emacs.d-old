@@ -11,6 +11,18 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
+;; Quelpa
+(unless (package-installed-p 'quelpa)
+  (package-install 'quelpa))
+
+;; To install packages from github
+(unless (package-installed-p 'quelpa-use-package)
+  (quelpa
+   '(quelpa-use-package
+     :fetcher git
+     :url "https://github.com/quelpa/quelpa-use-package.git")))
+(require 'quelpa-use-package)
+
 ;; Theme
 (use-package atom-one-dark-theme
   :ensure t
