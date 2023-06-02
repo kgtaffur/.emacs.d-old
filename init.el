@@ -89,6 +89,10 @@
   :ensure t
   :hook (company-mode . company-box-mode))
 
+(use-package elec-pair
+  :ensure t
+  :hook (prog-mode . electric-pair-mode))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
