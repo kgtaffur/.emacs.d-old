@@ -59,6 +59,16 @@
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
   (setq web-mode-auto-close-style 2))
 
+(use-package apheleia
+  :ensure t
+  :config
+  (setf (alist-get 'prettier apheleia-formatters)
+	'(npx "prettier"
+	      "--tab-width" "2"
+	      file))
+  (add-to-list 'apheleia-mode-alist '(web-mode . prettier))
+  (apheleia-global-mode t))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
