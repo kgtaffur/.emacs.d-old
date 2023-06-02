@@ -38,6 +38,27 @@
   :ensure t
   :hook (after-init . global-clipetty-mode))
 
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l"))
+
+(use-package web-mode
+  :ensure t
+  :mode (("\\.html?\\'" . web-mode)
+	 ("\\.css\\'" . web-mode)
+	 ("\\.jsx?\\'" . web-mode)
+	 ("\\.tsx?\\'" . web-mode)
+	 ("\\.json\\'" . web-mode))
+  :hook (web-mode . lsp-deferred)
+  :config
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  (setq web-mode-auto-close-style 2))
+
 ;(use-package evil
 ;  :ensure t
 ;  :init
@@ -57,6 +78,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(delete-selection-mode nil)
+ '(lsp-clients-angular-language-server-command
+   '("node" "/usr/local/lib/node_modules/@angular/language-server" "--ngProbeLocations" "/usr/local/lib/node_modules" "--tsProbeLocations" "/usr/local/lib/node_modules" "--stdio"))
  '(package-selected-packages '(evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
